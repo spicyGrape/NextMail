@@ -68,7 +68,7 @@ class emailAgent:
         print(self.result)
 
         # def write_wrong_json(self):
-            # with open("./media/email/email_saved.json", "w") as file:
+            # with open("./media/email/email_saved.json", "w") as file
 
 
 
