@@ -84,7 +84,7 @@ class EmailAgent:
 
     #Method for feedback that GPT is wrong
     def switch_to_nonImportant(self):
-        prompt = (f"Your classifying for the this email is wrong.")
+        prompt = (f"Your classifying for this email is wrong.")
 
         message = self.client.beta.threads.messages.create(
             thread_id=self.thread.id,
