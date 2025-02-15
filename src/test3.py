@@ -1,9 +1,6 @@
 import json
 from openai import OpenAI
 
-from src.test2 import prompt
-
-
 class EmailAgent:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -18,7 +15,7 @@ class EmailAgent:
 
     def read_email(self):
         # Load the email from a JSON file
-        with open("./media/email/email_saved.json", "r") as file:
+        with open("../media/email/email_saved.json", "r") as file:
             email_data = json.load(file)
 
         # Construct the email text from JSON data
@@ -45,4 +42,19 @@ class EmailAgent:
                 assistant_id=self.assistant.id,
         ) as stream:
             stream.until_done()
+
+if __name__ == "__main__":
+    # 确保有一个有效的 OpenAI API 密钥
+    API_KEY = "your_openai_api_key_here"
+
+    # 实例化 EmailAgent
+    email_agent = EmailAgent(api_key=API_KEY)
+
+    # 读取 JSON 文件中的邮件内容
+    email_agent.read_email()
+
+    # 分类邮件重要性
+    email_agent.email_catagory()
+
+
 
