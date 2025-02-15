@@ -1,4 +1,4 @@
-# NextMail
+# NextMail✉️
 An AI-powered email client that can categorize the importance of emails using GPT-based APIs.
 
 ## _EmailAccept.py_
