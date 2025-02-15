@@ -120,6 +120,7 @@ if __name__ == "__main__":
     email_fetcher = EmailFetcher("./media/email_account.json")
     email_fetcher.connect()
     email_data = email_fetcher.fetch_latest_email()
+    print(email_data)
 
     if email_data:
         email_fetcher.save_email_data(email_data)
