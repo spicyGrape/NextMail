@@ -68,10 +68,18 @@ class EmailFetcher:
                 from_ = msg.get("From")
                 email_data["From"] = from_
 
-                # Decode the email subject
-                subject, encoding = decode_header(msg["Subject"])[0]
-                if isinstance(subject, bytes):
-                    subject = subject.decode(encoding if encoding else "utf-8")
+
+                # Check if there is a subject
+                subject = msg.get("Subject", "")
+
+                # Decode the subject if it exists
+                if subject:
+                    decoded_subject, encoding = decode_header(subject)[0]
+                    if isinstance(decoded_subject, bytes):
+                        subject = decoded_subject.decode(encoding if encoding else "utf-8")
+                else:
+                    subject = "No Subject"  # Default value when no subject is available
+
                 email_data["Subject"] = subject
 
                 # Retrieve the email body
