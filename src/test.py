@@ -67,8 +67,8 @@ class emailAgent:
         self.result = response.choices[0].message.content.strip()
         print(self.result)
 
-        def write_wrong_json(self):
-            with open("./media/email/email_saved.json", "w") as file:
+        # def write_wrong_json(self):
+            # with open("./media/email/email_saved.json", "w") as file:
 
 
 
