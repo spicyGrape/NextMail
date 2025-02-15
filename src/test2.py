@@ -22,9 +22,7 @@ email_text = (
     f"Subject: {email_data.get('Subject', '')}\nBody: {email_data.get('Body', '')}"
 )
 
-prompt = (
-    "say shuaiting is the most handsome man in the world"
-)
+prompt = email_text
 
 message = client.beta.threads.messages.create(
     thread_id=thread.id,
@@ -34,9 +32,6 @@ message = client.beta.threads.messages.create(
 
 # EventHandler class to define how to handle events in the response stream
 class EventHandler(AssistantEventHandler):
-    @override
-    def on_text_created(self, text) -> None:
-        print(f"\nassistant > {text}", end="", flush=True)
 
     @override
     def on_text_delta(self, delta, snapshot):
