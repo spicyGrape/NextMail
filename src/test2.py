@@ -9,8 +9,27 @@ client = OpenAI(api_key="sk-proj-r7nCXafJbFDyd-TwiDpvPyfwMWJUDLdW-WPiuh2lkjYpvMx
 
 assistant = client.beta.assistants.create(
     name="Email Classifier",
-    instructions="You are an email classifier. You should tell me the importance of the email.",
-    model="gpt-3.5-turbo",
+    instructions=
+    '''
+    You are a helperful Email classifier.
+
+    You are going to classify an email into 4 catologues
+    based on its importance.
+
+    The 4 catologues are:
+    -   Important Information
+    -   Unimportant
+    -   Requires Actions
+    -   Requires Reply
+
+    Your response should include a word indicating which catologue it is,
+    and a reason why it is.
+
+    There should be a new line when the 'reason' part starts.
+
+    Keep your response short and concise.
+    ''',
+    model="gpt-4o-mini"
 )
 
 thread = client.beta.threads.create()
